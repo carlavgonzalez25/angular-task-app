@@ -1,4 +1,17 @@
-<div class="task">
-  <h3>{{ task.text }} <fa-icon [ngStyle]="{color: 'red'}" [icon]='faTimes'></fa-icon>  </h3>
+<div
+  class="task"
+  [ngClass]="{ reminder: task.reminder }"
+  (dblclick)="onToggle(task)"
+>
+  <h3>
+    {{ task.text }}
+    <fa-icon
+      (click)="onDelete(task)"
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faTimes"
+    ></fa-icon>
+  </h3>
   <p>{{ task.day }}</p>
 </div>
+
+<!-- Si usamos [icon] con los [], la el valor de la expresion faTimes sera evaluada, si solo usamos icon sin los [], el valor sera tomado como un string  -->
