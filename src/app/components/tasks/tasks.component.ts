@@ -13,7 +13,7 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService) {} //Para usar un servicio debemos agregarlo como provider en el constructor
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks)); //El getTastks ahora es un observable, por lo cual debemos suscribirnos a el
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks)); //El getTasks ahora es un observable, por lo cual debemos suscribirnos a el
   }
 
   deleteTask(task: Task) {
@@ -31,5 +31,9 @@ export class TasksComponent implements OnInit {
 
   addTask(task: Task) {
     this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
+  }
+
+  editTask(task: Task) {
+    this.taskService.setEditionId(task);
   }
 }

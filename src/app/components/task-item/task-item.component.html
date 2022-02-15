@@ -3,15 +3,28 @@
   [ngClass]="{ reminder: task.reminder }"
   (dblclick)="onToggle(task)"
 >
-  <h3>
-    {{ task.text }}
+  <div class="card-container">
+    <app-task-display-item
+      [task]="task"
+      *ngIf="!hasId(task.id)"
+    ></app-task-display-item>
+    <app-task-edition-item
+      [task]="task"
+      *ngIf="hasId(task.id)"
+    ></app-task-edition-item>
+  </div>
+  <div class="buttons-container">
     <fa-icon
       (click)="onDelete(task)"
       [ngStyle]="{ color: 'red' }"
       [icon]="faTimes"
     ></fa-icon>
-  </h3>
-  <p>{{ task.day }}</p>
+    <fa-icon
+      (click)="onEdit(task)"
+      [ngStyle]="{ color: 'green' }"
+      [icon]="faPen"
+    ></fa-icon>
+  </div>
 </div>
 
 <!-- Si usamos [icon] con los [], la el valor de la expresion faTimes sera evaluada, si solo usamos icon sin los [], el valor sera tomado como un string  -->

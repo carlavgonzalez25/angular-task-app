@@ -15,6 +15,8 @@ const httpOptions = {
 export class TaskService {
   private apiUrl = 'http://localhost:5000/tasks';
 
+  editionId!: any;
+
   constructor(private http: HttpClient) {}
 
   getTasks(): Observable<Task[]> {
@@ -33,5 +35,15 @@ export class TaskService {
 
   addTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.apiUrl, task, httpOptions);
+  }
+
+  setEditionId(task: Task): any {
+    this.editionId = task.id;
+    console.log('ID ', this.editionId);
+    return this.editionId;
+  }
+
+  getEditionId(): any {
+    return this.editionId;
   }
 }
