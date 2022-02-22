@@ -37,13 +37,17 @@ export class TaskService {
     return this.http.post<Task>(this.apiUrl, task, httpOptions);
   }
 
-  setEditionId(task: Task): any {
-    this.editionId = task.id;
-    console.log('ID ', this.editionId);
+  setEditionId(id: any): any {
+    this.editionId = id;
     return this.editionId;
   }
 
   getEditionId(): any {
     return this.editionId;
+  }
+
+  editTask(task: Task): Observable<Task> {
+    const url = `${this.apiUrl}/${task.id}`;
+    return this.http.put<Task>(url, task, httpOptions);
   }
 }

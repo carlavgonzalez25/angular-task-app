@@ -4,5 +4,6 @@
   [task]="task"
   (onDeleteTask)="deleteTask(task)"
   (onToggleReminder)="toggleReminder(task)"
-  (onEditTask)="editTask(task)"
+  (onEditTask)="editTask(task.id)"
+  (onReloadTasks)="reloadTasks()"
 ></app-task-item>

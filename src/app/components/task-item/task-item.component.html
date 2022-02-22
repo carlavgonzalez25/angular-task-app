@@ -11,6 +11,7 @@
     <app-task-edition-item
       [task]="task"
       *ngIf="hasId(task.id)"
+      (onEditTask)="onHandleEdit($event)"
     ></app-task-edition-item>
   </div>
   <div class="buttons-container">

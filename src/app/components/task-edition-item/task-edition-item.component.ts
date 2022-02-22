@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/Task';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-
+import { TaskService } from 'src/app/services/task.service';
 @Component({
   selector: 'app-task-edition-item',
   templateUrl: './task-edition-item.component.html',
@@ -10,14 +9,32 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class TaskEditionItemComponent implements OnInit {
   @Input() task!: Task;
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onCleanEdit: EventEmitter<any> = new EventEmitter();
+  @Output() onReloadTasks: EventEmitter<boolean> = new EventEmitter();
 
-  faTimes = faTimes;
+  text: string = '';
+  day: string = '';
+  reminder: boolean = false;
+  id?: number;
 
-  constructor() {}
+  constructor(private taskService: TaskService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.text = this.task.text;
+    this.day = this.task.day;
+    this.reminder = this.task.reminder;
+    this.id = this.task.id;
+  }
 
-  onEdit(task: Task) {
-    this.onEditTask.emit(task);
+  onSubmit() {
+    const newTask = {
+      text: this.text,
+      day: this.day,
+      reminder: this.reminder,
+      id: this.id,
+    };
+    this.onEditTask.emit(newTask);
+    this.taskService.setEditionId(undefined);
+    this.onReloadTasks.emit(true);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from 'src/app/Task';
-import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faPen, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class TaskItemComponent implements OnInit {
 
   faTimes = faTimes;
   faPen = faPen;
+  faCheck = faCheck;
 
   constructor(private taskService: TaskService) {}
 
@@ -33,9 +34,12 @@ export class TaskItemComponent implements OnInit {
     this.onEditTask.emit(task.id);
   }
 
-  onEditSave(task: Task) {}
-
   hasId(id: any) {
     return this.taskService.getEditionId() === id;
+  }
+
+  onHandleEdit(task: Task) {
+    this.taskService.editTask(task).subscribe();
+    this.onEditTask.emit(undefined);
   }
 }

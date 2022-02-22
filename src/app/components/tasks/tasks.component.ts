@@ -33,7 +33,11 @@ export class TasksComponent implements OnInit {
     this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
   }
 
-  editTask(task: Task) {
-    this.taskService.setEditionId(task);
+  editTask(id: any) {
+    this.taskService.setEditionId(id);
+  }
+
+  reloadTasks() {
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 }

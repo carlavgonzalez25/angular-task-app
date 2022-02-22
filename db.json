@@ -1,46 +1,40 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "text": "Ir al medico",
-      "day": "Feb 19 at 2:30pm",
-      "reminder": true
-    },
-    {
-      "id": 2,
-      "text": "Comprar fruta",
+      "text": "Comprar fruta x 2 --",
       "day": "Feb 20 at 3:30pm",
-      "reminder": false
+      "reminder": false,
+      "id": 2
     },
     {
-      "id": 3,
-      "text": "Llamar abogado",
+      "text": "Llamar abogado juan",
       "day": "Feb 21 at 1:30pm",
-      "reminder": false
+      "reminder": true,
+      "id": 3
     },
     {
-      "id": 4,
-      "text": "Nutricionista",
+      "text": "Nutricionista con salsa sfsf",
       "day": "Feb 21 at 5:00pm",
-      "reminder": true
+      "reminder": false,
+      "id": 4
     },
     {
-      "id": 5,
-      "text": "Comprar comida",
+      "text": "Comprar comid--",
       "day": "Feb 22 at 10:00am",
-      "reminder": false
+      "reminder": true,
+      "id": 5
     },
     {
-      "id": 6,
-      "text": "Cena con amigos",
-      "day": "Feb 22 at 8:30pm",
-      "reminder": true
+      "text": "Cena con amigos en casasda asdad",
+      "day": "Feb 22 at 8:30pm -",
+      "reminder": true,
+      "id": 6
     },
     {
-      "id": 7,
-      "text": "Reunion de trabajo ",
-      "day": "Feb 23 at 5:00pm",
-      "reminder": true
+      "text": "Reunion de traa",
+      "day": "Feb 23 at 5:00",
+      "reminder": true,
+      "id": 7
     },
     {
       "id": 8,
